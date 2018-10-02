@@ -1,6 +1,6 @@
 import json
 from summarization import summary
-# Make it work for Python 2+3 and with Unicode
+
 import io
 
 try:
