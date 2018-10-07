@@ -1,24 +1,18 @@
 # -*- coding: utf-8 -*-
-from nltk.tokenize import sent_tokenize
+from keywordExtraction import get_keywords
+from sentencesAnalyzing import get_content_summary
+
 import sys
 
 reload(sys)
 sys.setdefaultencoding('utf8')
 
 
-def summary(heading, content):
-    # print "Heading = ", heading
-    sent_tokenize_list = sent_tokenize(content)
-    length = len(sent_tokenize_list)
-    final_summary = ''
-    i = 0
-    for sentence in sent_tokenize_list:
-        sentence = sentence.replace('COLOMBO (News 1st) : ', '')
-        sentence = sentence.replace('COLOMBO (News 1st) – ', '')
-        if i == 0:
-            final_summary = final_summary + sentence
-        if i == length - 1:
-            final_summary = final_summary + sentence
-        i += 1
+def create_summary(heading, content):
+    content = content.replace('COLOMBO (News 1st) : ', '')
+    content = content.replace('COLOMBO (News 1st) – ', '')
 
-    return final_summary
+    keywords = get_keywords(content, heading)
+    summary = get_content_summary(content, keywords)
+
+    return summary
