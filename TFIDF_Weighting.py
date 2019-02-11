@@ -53,6 +53,7 @@ def get_document_keywords(content):
     keywords = []
     for word in sliced_words:
         keywords.append(word['word'])
+        print word['word']
 
     return keywords
 

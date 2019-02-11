@@ -31,7 +31,7 @@ for data in doc:
     # keywords = get_keywords(data['content'])
     # data['keywords'] = keywords
     data['summary'] = create_summary(None , data['content'])
-    # break
+    break
 
 with io.open('./Output files/summarized_document.json', 'w', encoding='utf8') as outfile:
     str_ = json.dumps(doc,

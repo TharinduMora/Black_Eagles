@@ -26,6 +26,13 @@ def get_content_summary(content, keywords):
 
     summary_sentences = list(islice(sorted_sentence_list, number_of_sentences_in_summary))
 
+    try:
+        if sent_tokenize_list[0] not in summary_sentences:
+            summary_sentences.pop()
+            summary_sentences.append(sent_tokenize_list[0])
+    except:
+        print 'error'
+
     for sentence in sent_tokenize_list:
         if sentence in summary_sentences:
             final_summary = final_summary + sentence

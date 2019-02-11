@@ -14,7 +14,8 @@ my_col = get_word_probability()
 
 words_doc = my_col.find()[0]
 
-with open("./Input_files/sports_news.json", "r") as read_file:
+with open("../cricket_news/new2.json", "r") as read_file:
+    # with open("./Input_files/sports_news.json", "r") as read_file:
     doc = json.load(read_file)
     number_of_articles = len(doc)
 
